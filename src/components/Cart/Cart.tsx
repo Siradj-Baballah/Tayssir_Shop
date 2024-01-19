@@ -50,7 +50,7 @@ export const Cart = () => {
         }}
         pos="relative"
       >
-        <BsCart4 size="18px" /> <Text mx="2"> السلة</Text>
+        <BsCart4 size="18px" /> <Text mx="1" fontSize="0.9rem"> السلة</Text>
         {cart.length !== 0 && (
           <Flex
             pos="absolute"

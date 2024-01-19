@@ -33,7 +33,7 @@ export const Wishlist = () => {
           }}
           pos="relative"
         >
-          <BsHeart size="1rem" /> <Text mx="2">العناصر المفضلة</Text>
+          <BsHeart size="1rem" /> <Text mx="1" fontSize="0.9rem">العناصر المفضلة</Text>
           {wishlist.length !== 0 && (
             <Flex
               pos="absolute"
@@ -55,7 +55,7 @@ export const Wishlist = () => {
       <PopoverContent minW="420px">
         <PopoverArrow />
         <PopoverCloseButton />
-        <PopoverHeader color="brand.primary" fontWeight="bold">
+        <PopoverHeader fontSize="1rem" color="brand.primary" fontWeight="bold">
         العناصر المفضلة 
         </PopoverHeader>
         <PopoverBody p="1rem">
