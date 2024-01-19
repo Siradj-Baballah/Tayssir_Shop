@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import { BiMailSend } from 'react-icons/bi';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 import { AppLogo } from '../AppLogo';
 
 const SocialButton = ({
@@ -38,7 +38,8 @@ const SocialButton = ({
       justifyContent={'center'}
       transition={'background 0.3s ease'}
       _hover={{
-        bg: 'blackAlpha.200',
+        color:'white',
+        bg: 'brand.primary',
       }}
     >
       <VisuallyHidden>{label}</VisuallyHidden>
@@ -57,46 +58,53 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 
 export const Footer = () => {
   return (
-    <Box bg="pink.50" color="gray.700" mt="2rem">
+    <Box bg="blue.50" color="gray.700" mt="2rem" dir='rtl'>
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
-          templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
-          spacing={8}
+          templateColumns={{ sm: '1fr 1fr', md: '1fr 1fr 1fr' }}
+          spacing={12} // Increase spacing
         >
-          <Stack spacing={6}>
+          <Stack spacing={4}>
             <Box>
               <AppLogo />
             </Box>
-            <Text fontSize="sm">© 2023 MS Buy. All rights reserved</Text>
-            <Stack direction="row" spacing={6}>
-              <SocialButton label="Twitter" href={'#'}>
-                <FaTwitter />
+            <Text fontSize="sm" fontWeight="bold" >© كل الحقوق محفوظة 2024</Text>
+          </Stack>
+
+          <Stack align="flex-start">
+            <ListHeader> 
+              <Text fontSize='lg' dir='rtl' color="brand.darkBlue" fontWeight="bold">
+                TAYSSIR{' '}
+                <Text as="span" color='brand.primary'>
+                   DZ
+                </Text> 
+                </Text>
+              </ListHeader>
+            <Stack spacing={3.8}> {/* Increase spacing */}
+              <Link href={'#'} fontSize="sm" fontWeight="bold"_hover={{color:'brand.primary'}}>الصفحة الرئيسية للشركة</Link>
+            </Stack>
+          </Stack>
+
+          <Stack  align="flex-start"> 
+          <ListHeader>وسائل التواصل الاجتماعي</ListHeader>
+              <Stack direction='row' spacing={4}>
+              <SocialButton label="Instagram" href={'#'}>
+                <FaInstagram />
               </SocialButton>
               <SocialButton label="Facebook" href={'#'}>
                 <FaFacebook />
               </SocialButton>
-              <SocialButton label="Instagram" href={'#'}>
-                <FaInstagram />
+              <SocialButton label="Whatsapp" href={'#'}>
+                <FaWhatsapp />
               </SocialButton>
-            </Stack>
+              </Stack>
           </Stack>
-          <Stack align="flex-start">
-            <ListHeader>Company</ListHeader>
-            <Link href={'#'}>About us</Link>
-            <Link href={'#'}>Contact us</Link>
-            <Link href={'#'}>Testimonials</Link>
-          </Stack>
-          <Stack align="flex-start">
-            <ListHeader>Support</ListHeader>
-            <Link href={'#'}>Help Center</Link>
-            <Link href={'#'}>Terms of Service</Link>
-            <Link href={'#'}>Privacy Policy</Link>
-          </Stack>
-          <Stack align="flex-start">
-            <ListHeader>Get the best deals</ListHeader>
-            <Stack direction={'row'}>
+
+          {/* <Stack align="flex-start">
+            <ListHeader>احصل على افضل الصفقات</ListHeader>
+            <Stack direction={'row'} spacing={6}>
               <Input
-                placeholder="Your email address"
+                placeholder="البريد الاكتروني "
                 bg="blackAlpha.100"
                 border={0}
                 _focus={{
@@ -113,7 +121,10 @@ export const Footer = () => {
                 icon={<BiMailSend />}
               />
             </Stack>
-          </Stack>
+          </Stack> */}
+
+          
+
         </SimpleGrid>
       </Container>
     </Box>

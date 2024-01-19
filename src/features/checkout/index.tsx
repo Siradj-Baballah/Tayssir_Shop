@@ -39,13 +39,13 @@ export const Checkout = () => {
     <Flex
       w={{ base: '100%', lg: '90%' }}
       mx="auto"
-      flexDir={{ base: 'column', lg: 'row' }}
+      flexDir={{ base: 'column', lg: 'row-reverse' }}
       gap="2rem"
     >
-      <Stack spacing={10} w={{ base: '100%', lg: '60%' }}>
+      <Stack spacing={10} w={{ base: '100%', lg: '60%' }} dir="rtl">
         <Card borderWidth="1px" borderColor="gray.200" shadow="none">
           <CardHeader>
-            <Heading size="md">Review Items</Heading>
+            <Heading size="md">مراجعة المنتجات</Heading>
           </CardHeader>
 
           <CardBody>
@@ -73,10 +73,10 @@ export const Checkout = () => {
                   </Flex>
                   <Box textAlign="right">
                     <Text fontWeight="bold" fontSize={{ base: 'md', lg: 'lg' }}>
-                      ${formatPrice(item.price)}
+                      {formatPrice(item.price)} DA
                     </Text>
                     <Text fontSize={{ base: 'sm', lg: 'md' }}>
-                      Quantity: {item.count}
+                      العدد: {item.count}
                     </Text>
                   </Box>
                 </Flex>
@@ -85,55 +85,57 @@ export const Checkout = () => {
           </CardBody>
         </Card>
 
-        <Card borderWidth="1px" borderColor="gray.200" shadow="none">
+        <Card borderWidth="1px" borderColor="gray.200" shadow="none" >
           <CardHeader>
-            <Heading size="md">Delivery Information</Heading>
+            <Heading size="md">ادخل المعلومات الخاصة بك :</Heading>
           </CardHeader>
 
           <CardBody>
             <Stack spacing="2rem">
               <Box>
-                <FormLabel>Full Name</FormLabel>
-                <Input type="text" placeholder="Full name" />
+                <FormLabel>الإسم الكامل</FormLabel>
+                <Input type="text" placeholder="الاسم الكامل" />
               </Box>
 
               <Box>
-                <FormLabel>Address</FormLabel>
-                <Input type="text" placeholder="address" />
+                <FormLabel>رقم الهاتف</FormLabel>
+                <Input type="number" placeholder="رقم الهاتف" />
               </Box>
 
               <Box>
-                <FormLabel>Phone</FormLabel>
-                <Input type="text" placeholder="phone number" />
+                <FormLabel>الولاية</FormLabel>
+                <Input type="text" placeholder="الولاية" />
               </Box>
 
               <Box>
-                <FormLabel>Email</FormLabel>
-                <Input type="email" placeholder="email" />
+                <FormLabel>العنوان</FormLabel>
+                <Input type="text" placeholder="العنوان" />
               </Box>
+
             </Stack>
           </CardBody>
         </Card>
+        
       </Stack>
 
       <Box w={{ base: '100%', lg: '40%' }}>
         <Card borderWidth="1px" borderColor="gray.200" shadow="none" p="2rem">
           <CardHeader>
-            <Heading size="md">Payment Details</Heading>
+            <Heading dir="rtl" size="md">معلومات الدفع</Heading>
           </CardHeader>
 
           <CardBody>
             <Stack spacing="2rem">
-              <Flex>
+              <Flex dir='rtl'>
                 <Input
                   type="text"
-                  placeholder="Enter Coupon Code"
-                  rounded="full"
+                  placeholder="ادخل كوبون كود"
+                  borderRightRadius="full"
                 />
                 <Button
                   bgColor="brand.primary"
                   color="white"
-                  rounded="full"
+                  borderLeftRadius="full"
                   ml="-40px"
                   px="2rem"
                   _hover={{
@@ -143,51 +145,41 @@ export const Checkout = () => {
                     bgColor: 'brand.primaryDark',
                   }}
                 >
-                  Apply Coupon
+                  تطبيق الكوبون
                 </Button>
-              </Flex>
+              </Flex >
               <Divider mt="1rem" />
 
-              <Box>
+              <Box dir='rtl'>
                 <Heading size="xs" my="1rem">
-                  Payment Option
+                  طرق الدفع
                 </Heading>
-                <RadioGroup>
-                  <Stack>
-                    <Radio value="cashOnDelivery">Cash On Delivery</Radio>
-                    <Radio value="momo">Mobile Money Payment</Radio>
-                    <Radio value="3">Credit Card (Master/Visa)</Radio>
-                  </Stack>
-                </RadioGroup>
+                  <Radio mb="1rem" value="cashOnDelivery" defaultChecked >الدفع عند الاستلام</Radio>
               </Box>
             </Stack>
             <Divider mt="1rem" />
 
-            <Box>
+            <Box dir='rtl'>
               <Flex justify="space-between" align="center" my="1rem">
-                <Text fontWeight="bold">Sub Total</Text>
-                <Text fontWeight="bold">${formatPrice(subTotal)}</Text>
+                <Text fontWeight="bold">المجموع :</Text>
+                <Text fontWeight="bold">{formatPrice(subTotal)} DA</Text>
               </Flex>
 
-              <Flex justify="space-between" align="center" my="1rem">
+              {/* <Flex justify="space-between" align="center" my="1rem">
                 <Text fontWeight="bold">Tax(10%)</Text>
-                <Text fontWeight="bold">${formatPrice(tax)}</Text>
-              </Flex>
+                <Text fontWeight="bold">{formatPrice(tax)} DA</Text>
+              </Flex> */}
 
-              <Flex justify="space-between" align="center" my="1rem">
+              {/* <Flex justify="space-between" align="center" my="1rem">
                 <Text fontWeight="bold">Coupon Discount</Text>
-                <Text fontWeight="bold">-${formatPrice(tax)}</Text>
-              </Flex>
+                <Text fontWeight="bold">-{formatPrice(tax)} DA</Text>
+              </Flex> */}
 
               <Flex justify="space-between" align="center" my="1rem">
-                <Text fontWeight="bold">Shipping Cost</Text>
-                <Text fontWeight="bold">-${formatPrice(0)}</Text>
+                <Text fontWeight="bold">تكاليف التوصيل</Text>
+                <Text fontWeight="bold">أزيد من 400 DA</Text>
               </Flex>
               <Divider />
-              <Flex justify="space-between" align="center" my="1rem">
-                <Text fontWeight="bold">Total</Text>
-                <Text fontWeight="bold">${formatPrice(subTotal)}</Text>
-              </Flex>
             </Box>
 
             <Button
@@ -202,7 +194,7 @@ export const Checkout = () => {
                 bgColor: 'brand.primaryDark',
               }}
             >
-              Pay ${formatPrice(subTotal)}
+              تأكيد الطلب
             </Button>
           </CardBody>
         </Card>

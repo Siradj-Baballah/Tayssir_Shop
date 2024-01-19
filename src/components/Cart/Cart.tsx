@@ -50,7 +50,7 @@ export const Cart = () => {
         }}
         pos="relative"
       >
-        <BsCart4 /> <Text mx="1">Cart</Text>
+        <BsCart4 size="18px" /> <Text mx="2"> السلة</Text>
         {cart.length !== 0 && (
           <Flex
             pos="absolute"
@@ -70,7 +70,7 @@ export const Cart = () => {
       </Button>
       <Drawer
         isOpen={isOpen}
-        placement="right"
+        placement="left"
         onClose={onClose}
         finalFocusRef={btnRef}
         size="lg"
@@ -79,11 +79,11 @@ export const Cart = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader color="brand.primary">
-            Cart ( {cart.length} Items )
+            السلة ( {cart.length} منتج )
           </DrawerHeader>
           <DrawerBody>
             {cart.length === 0 ? (
-              <>Your Cart is Empty</>
+              <>سلة التسوق فارغة</>
             ) : (
               cart.map((item) => <CartItem key={item.id} item={item} />)
             )}
@@ -96,7 +96,7 @@ export const Cart = () => {
                   mr={3}
                   onClick={() => resetItems('cart')}
                 >
-                  Clear Cart
+                  محو المنتجات
                 </Button>
                 <Link href="/checkout">
                   <Button
@@ -110,11 +110,11 @@ export const Cart = () => {
                     }}
                     onClick={handleCheckout}
                   >
-                    Checkout
+                    أطلب الأن
                   </Button>
                 </Link>
               </Box>
-              <Box fontWeight="bold">Total: $ {calculateItemsTotal(cart)}</Box>
+              <Box fontWeight="bold">{calculateItemsTotal(cart)} DA : المجموع</Box>
             </DrawerFooter>
           )}
         </DrawerContent>

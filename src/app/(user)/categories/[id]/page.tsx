@@ -41,9 +41,9 @@ async function CategoryPage({ params: { id } }: Props) {
     <>
       <Hero
         heading={products[0]?.category?.name}
-        description={`Best and Affordable ${products[0]?.category?.name}`}
+        description={`أفضل  ${products[0]?.category?.name} وبأسعار معقولة`}
         imageUrl={products[0]?.category?.image}
-        btnLabel="View All Categories"
+        btnLabel="عرض كل التصنيفات"
         btnLink="/categories"
       />
       <AllProducts

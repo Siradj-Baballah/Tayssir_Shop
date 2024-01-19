@@ -5,7 +5,7 @@ import {
   BreadcrumbLink,
   Text,
 } from '@chakra-ui/react';
-import { ChevronRightIcon } from '@chakra-ui/icons';
+import { ChevronLeftIcon } from '@chakra-ui/icons';
 import { IBreadcrumbItem } from '@src/model';
 
 interface ICustomBreadcrumbProps {
@@ -17,13 +17,15 @@ export const CustomBreadcrumb = ({ items = [] }: ICustomBreadcrumbProps) => {
     <>
       {items.length > 0 && (
         <Breadcrumb
+          dir='rtl'
           spacing="8px"
-          separator={<ChevronRightIcon color="gray.500" />}
-          w={{ base: '100%', lg: '90%' }}
+          separator={<ChevronLeftIcon color="gray.500" />}
+          w={{ base: '90%', lg: '85%' }}
           py="2rem"
           px="1rem"
+          
           mx="auto"
-          fontSize={{ base: 'xs', md: 'md' }}
+          fontSize={{ base: 'sm', md: 'md' }}
         >
           {items.map((item, index) =>
             index !== items.length - 1 ? (

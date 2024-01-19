@@ -20,7 +20,7 @@ export const Hero = ({
 }: IHeroProps) => {
   return (
     <Card
-      direction={{ base: 'column', md: 'row' }}
+      direction={{ base: 'column', md: 'row-reverse' }}
       align="center"
       justify="space-between"
       overflow="hidden"
@@ -31,21 +31,23 @@ export const Hero = ({
       p="2rem"
       mb="2rem"
     >
-      <Box mx="2rem" w={{ base: '100%', md: '50%' }}>
+      <Box dir="rtl" mx="2rem" w={{ base: '100%', md: '50%' }} >
         <Heading size="2xl">{heading}</Heading>
-        <Text py="1rem">{description}</Text>
+        <Text py="1rem" w="80%">{description}</Text>
 
         <Link href={btnLink}>
           <Button variant="outline">{btnLabel}</Button>
         </Link>
       </Box>
-      <Box mx="2rem" w={{ base: '100%', md: '50%' }} mt="1rem">
+      <Box mx="2rem" w={{ base: '100%', md: '40%' }} mt="1rem"  color="blue.100">
         <Image
+          display={{ base: 'none', lg: 'block' }}
           src={imageUrl}
           alt={heading}
           objectFit="cover"
           maxW={{ base: '100%' }}
           rounded="md"
+          mx="auto"
         />
       </Box>
     </Card>

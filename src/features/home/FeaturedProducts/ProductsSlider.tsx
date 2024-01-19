@@ -22,6 +22,7 @@ export const ProductsSlider = ({ products }: ProductsSlider) => {
     spaceBetween: 10,
     slidesPerView: 'auto',
     speed: 1000,
+    direction: 'horizontal', // Change the direction to horizontal (left to right)
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,

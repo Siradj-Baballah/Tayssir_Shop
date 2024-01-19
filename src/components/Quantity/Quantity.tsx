@@ -1,4 +1,4 @@
-import { Button, HStack, Input, useNumberInput } from '@chakra-ui/react';
+import { Button, Center, HStack, Input, useNumberInput } from '@chakra-ui/react';
 import React from 'react';
 
 interface IQuantityProps {
@@ -35,12 +35,12 @@ export const Quantity = ({
 
   return (
     <HStack maxW="140px" my="0.5rem">
-      <Button {...dec} disabled={disabled}>
-        -
-      </Button>
-      <Input {...input} readOnly={true} minW="52px" />
       <Button {...inc} disabled={disabled}>
         +
+      </Button>
+      <Input {...input} readOnly={true} minW="52px" textAlign="center" />
+      <Button {...dec} disabled={disabled}>
+        -
       </Button>
     </HStack>
   );

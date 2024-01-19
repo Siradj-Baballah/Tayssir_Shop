@@ -25,10 +25,10 @@ export default async function AllCategoriesPage() {
   return (
     <>
       <Hero
-        heading="Product Categories"
-        description="We've got all your favorite Categories"
-        imageUrl="/store.png"
-        btnLabel="View All Products"
+        heading="الجودة والتنوع في مكان واحد"
+        description="تصفح مجموعتنا المتنوعة من المنتجات  المناسبة و المفضلة لديك لتجد الجودة والتنوع في مكان واحد"
+        imageUrl="/modern-stationary.jpg"
+        btnLabel="عرض كل المنتجات"
         btnLink="/products"
       />
       <AllCategories categories={categories} />

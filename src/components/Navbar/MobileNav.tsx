@@ -17,13 +17,13 @@ export function MobileNav() {
         borderBottom="1px"
         borderColor="gray.200"
       >
-        <NavMenu />
-        <AppLogo />
-
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row-reverse" spacing={1}>
           <Wishlist />
           <Cart />
         </Stack>
+        <AppLogo />
+        <NavMenu />
+        
       </Flex>
       <Box
         px="2rem"

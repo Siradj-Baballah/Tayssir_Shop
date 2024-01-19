@@ -1,11 +1,13 @@
 'use client';
+
 import 'swiper/swiper.min.css';
-import { Navbar } from '@/components/Navbar/NavBar';
-import { theme } from '@/theme';
 import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider } from '@chakra-ui/react';
+import { Navbar } from '@/components/Navbar/NavBar';
+import { theme } from '@/theme';
 import AppContextProvider from '@src/context/AppContext';
 import { Footer } from '@src/components/Footer/Footer';
+import './styles.css';
 
 export default function RootLayout({
   children,
@@ -15,8 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>MS BUY</title>
-        <meta title="description" content="Buy anything online" />
+        <title>Tayssir Shop</title>
+        <meta title="description" content="اكتشف مستلزمات المدارس عالية الجودة بأسعار مميزة. من لوازم الدراسة والكتب إلى التقنيات التعليمية. اطلب اليوم لتجربة تسوق ممتازة وتوصيل سريع." />
         <link
           rel="icon"
           type="image/png"
@@ -24,7 +26,7 @@ export default function RootLayout({
           href="shopping_cart.png"
         />
       </head>
-      <body>
+      <body style={{fontSize:'16px'}}>
         <CacheProvider>
           <ChakraProvider theme={theme}>
             <AppContextProvider>

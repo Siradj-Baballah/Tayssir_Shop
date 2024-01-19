@@ -19,8 +19,8 @@ interface TopCategoriesProps {
 
 export const TopCategories = ({ categories }: TopCategoriesProps) => {
   return (
-    <Box w={{ base: '100%', lg: '90%' }} mx="auto" py="3rem" px="2rem">
-      <SectionHeading title=" Shop Our Top Categories" />
+    <Box dir="rtl" w={{ base: '100%', lg: '90%' }} mx="auto" py="3rem" px="2rem">
+      <SectionHeading title="استكشف أفضل التصنيفات" />
 
       <Grid
         templateColumns={{
@@ -45,8 +45,10 @@ export const TopCategories = ({ categories }: TopCategoriesProps) => {
           color="brand.primary"
           rounded="full"
           my="1rem"
+          p="1rem"
+          _hover={{ bgColor: 'brand.primary' , color: 'white' }}
         >
-          Browse All Categories
+           جميع التصنيفات
         </Button>
       </Link>
     </Box>
@@ -67,8 +69,18 @@ const TopCategoryCard = ({ category }: TopCategoryCardProps) => (
       w="100%"
       p="10px"
       h="100%"
-      _hover={{ cursor: 'pointer', bgColor: 'gray.100' }}
+      rounded="md"
+      transition="transform 0.3s ease-out, box-shadow 0.3s ease-out" // Smooth transition
+      _hover={{
+        cursor: 'pointer',
+        bgColor: 'gray.100',
+        boxShadow: 'lg', // Adjust the shadow intensity
+        transform: 'translateY(-5px)', // Move the card slightly on hover
+      }}
     >
+      <CardBody>
+        <Heading size={{ base: 'sm', lg: 'md' }}>{category.name}</Heading>
+      </CardBody>
       <Image
         src={category.image}
         alt={category.name}
@@ -76,9 +88,6 @@ const TopCategoryCard = ({ category }: TopCategoryCardProps) => (
         width={100}
       />
 
-      <CardBody>
-        <Heading size={{ base: 'sm', lg: 'md' }}>{category.name}</Heading>
-      </CardBody>
     </Card>
   </Link>
 );

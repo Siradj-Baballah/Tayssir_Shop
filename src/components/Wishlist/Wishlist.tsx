@@ -33,7 +33,7 @@ export const Wishlist = () => {
           }}
           pos="relative"
         >
-          <BsHeart size="0.9rem" /> <Text mx="1">Wishlist</Text>
+          <BsHeart size="1rem" /> <Text mx="2">العناصر المفضلة</Text>
           {wishlist.length !== 0 && (
             <Flex
               pos="absolute"
@@ -52,15 +52,15 @@ export const Wishlist = () => {
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent>
+      <PopoverContent minW="420px">
         <PopoverArrow />
         <PopoverCloseButton />
         <PopoverHeader color="brand.primary" fontWeight="bold">
-          Wishlist
+        العناصر المفضلة 
         </PopoverHeader>
         <PopoverBody p="1rem">
           {wishlist.length === 0 ? (
-            <>Your Wishlist is Empty</>
+            <> قائمة العناصر المفضلة فارغة </>
           ) : (
             wishlist.map((item) => <WishlistItem key={item.id} item={item} />)
           )}
@@ -68,11 +68,12 @@ export const Wishlist = () => {
         <PopoverFooter>
           {wishlist.length !== 0 && (
             <Button
+            fontSize='0.9rem'
               variant="outline"
               mr={3}
               onClick={() => resetItems('wishlist')}
             >
-              Clear Wishlist
+              امسح العناصر المفضلة
             </Button>
           )}
         </PopoverFooter>

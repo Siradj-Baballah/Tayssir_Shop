@@ -40,8 +40,12 @@ const CategoryCard = ({ category }: CategoryCardProps) => (
       w="100%"
       p="10px"
       h="100%"
-      _hover={{ cursor: 'pointer', bgColor: 'gray.100' }}
-    >
+      transition="transform 0.3s ease-out, box-shadow 0.3s ease-out" // Smooth transition
+      _hover={{ cursor: 'pointer',
+      bgColor: 'gray.100',
+      boxShadow: 'lg', // Adjust the shadow intensity
+      transform: 'translateY(-5px)', // Move the card slightly on hover
+     }}>
       <Image
         src={category.image}
         alt={category.name}
@@ -50,7 +54,7 @@ const CategoryCard = ({ category }: CategoryCardProps) => (
       />
 
       <CardBody>
-        <Heading size={{ base: 'sm', lg: 'md' }}>{category.name}</Heading>
+        <Heading size={{ base: 'md', lg: 'lg' }}>{category.name}</Heading>
       </CardBody>
     </Card>
   </Link>

@@ -6,9 +6,9 @@ import { MobileNav } from './MobileNav';
 export const Navbar = () => {
   return (
     <>
-      <Box className="navbar-wrapper" h="120px">
-        <Box pos="fixed" w="100%" bgColor="white" mb="1rem" zIndex={10}>
-          <DesktopNav />
+      <Box className="navbar-wrapper" h={{base:'110px' , lg:'82px' }}>
+        <Box pos="fixed" w="100%" bgColor="white" zIndex={10}>
+          <DesktopNav/>
           <MobileNav />
         </Box>
       </Box>

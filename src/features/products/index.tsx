@@ -40,7 +40,8 @@ export const AllProducts = ({
         flexWrap="wrap"
         w={{ base: '100%', lg: '90%' }}
         mx="auto"
-        justify={{ base: 'center', lg: 'space-between' }}
+        px="auto"
+        justify={{ base: 'center', lg: visibleProducts.length % 4 !== 0 ? 'flex-end' : 'space-between', }}
       >
         {visibleProducts.map((product) => (
           <ProductCard key={product.id} product={product} />

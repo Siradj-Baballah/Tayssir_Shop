@@ -16,14 +16,18 @@ export const AddToCartButton = ({ product, count }: IAddToCartButtonProps) => {
       {isAdded('cart', product.id) ? (
         <Button
           variant="outline"
-          borderColor="gray.200"
-          color="gray.500"
+          borderColor="red.200"
+          color="red.400"
           borderRadius="50px"
           size="sm"
           w="150px"
           onClick={() => removeItem('cart', product.id)}
+          _hover={{
+            bgColor:'red.400',
+            color:'white',
+          }}
         >
-          Remove from cart
+          احذف من السلة
         </Button>
       ) : (
         <Button
@@ -34,8 +38,12 @@ export const AddToCartButton = ({ product, count }: IAddToCartButtonProps) => {
           size="sm"
           w="150px"
           onClick={() => addItem('cart', product, count)}
-        >
-          Add to cart
+          _hover={{
+            bgColor:'brand.primary',
+            color:'white',
+          }}
+          >
+          أضف لسلة التسوق
         </Button>
       )}
     </>

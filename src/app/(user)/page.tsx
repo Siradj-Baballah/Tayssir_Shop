@@ -56,18 +56,18 @@ export default async function Home() {
     <main>
       <Banner />
       <TopCategories categories={featuredItems[0].topCategories} />
-      <FeaturedProducts
-        title="Best Deals For You"
+      <FeaturedProducts 
+        title="المستلزمات التي تحتاجها"
         products={featuredItems[0].bestDeals}
       />
-      <FeaturedProducts
+      {/* <FeaturedProducts
         title="Most Selling Products"
         products={featuredItems[0].mostSellingProducts}
       />
       <FeaturedProducts
         title="Trending Products"
         products={featuredItems[0].trendingProducts}
-      />
+      /> */}
     </main>
   );
 }

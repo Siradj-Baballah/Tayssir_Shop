@@ -28,10 +28,10 @@ export default async function ProductsPage() {
   return (
     <>
       <Hero
-        heading="Best and Quality Products"
-        description="Affordability, Durability, Fast and Convenient Delivery, Free Shipping and more"
-        imageUrl="/bags.jpg"
-        btnLabel="View All Categories"
+        heading="أفضل المنتجات بجودة عالية"
+        description="نقدم لكم منتجات بأسعار مناسبة مع خدمة توصيل سريعة لكل الولايات . تم توفير هذه المنتجات خصيصًا لتسهيل إدارة المدارس، وتقديم أفضل وسائل الراحة لطلابها. بالإضافة إلى ذلك، تلعب هذه المنتجات دورًا في تعزيز مكانة المدارس  وظهورها بشكل لائق عبر منصات التواصل الاجتماعي ."
+        imageUrl="modern-stationary-collection-arrangement.jpg"
+        btnLabel="عرض كل التصنيفات"
         btnLink="/categories"
       />
       <AllProducts products={products} />

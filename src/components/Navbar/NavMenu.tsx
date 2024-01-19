@@ -1,4 +1,5 @@
 import {
+  Stack,
   Box,
   Button,
   Divider,
@@ -29,19 +30,22 @@ export const NavMenu = () => {
       </Button>
       <Drawer
         isOpen={isOpen}
-        placement="left"
+        placement="right"
         onClose={onClose}
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>
-            <AppLogo />
+          <DrawerHeader >
+            <AppLogo/>
+            <DrawerCloseButton left={4} top={4}/>            
           </DrawerHeader>
+          
+          
+          
           <Divider />
 
-          <DrawerBody>
+          <DrawerBody dir='rtl'>
             {navItems.map((navItem) => (
               <Link href={navItem.href} key={navItem.label}>
                 <Box
@@ -54,9 +58,9 @@ export const NavMenu = () => {
             ))}
           </DrawerBody>
 
-          <DrawerFooter>
+          <DrawerFooter justifyContent="flex-start">
             <Button variant="outline" mr={3} onClick={onClose}>
-              Close
+              إغلاق
             </Button>
           </DrawerFooter>
         </DrawerContent>

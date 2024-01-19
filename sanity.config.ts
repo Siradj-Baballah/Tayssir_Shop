@@ -7,10 +7,10 @@ import { msTheme } from './src/theme';
 
 export const config: Config = {
   name: 'default',
-  title: 'MS Buy',
+  title: 'Tayssir Shop',
   basePath: '/studio',
 
-  projectId: 'gbmlc5y8',
+  projectId: '2smlwpnr',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],

@@ -6,6 +6,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  InputRightElement,
   Tag,
   Text,
   useOutsideClick,
@@ -69,20 +70,24 @@ export const Search = () => {
   return (
     <Box pos="relative" w={{ base: '100%', lg: '32rem' }} ref={ref}>
       <InputGroup {...inputGroup}>
-        <InputLeftElement
+      <InputRightElement
           pointerEvents="none"
           children={<SearchIcon color="gray.400" />}
         />
         <Input
+          dir="rtl"          
           type="text"
-          placeholder="Search..."
+          placeholder="ابحث..."
+          paddingRight={'32px'}
           focusBorderColor="brand.primaryLight"
           borderWidth="1px"
           borderColor="gray.400"
+          borderRadius={'8px'}
           value={searchText}
           onClick={() => setIsModalOpen(true)}
           onChange={(e) => setSearchText(e.target.value)}
         />
+        
       </InputGroup>
 
       {isModalOpen && (
@@ -98,9 +103,9 @@ export const Search = () => {
         >
           {products.length === 0 ? (
             isLoading ? (
-              <>Loading...</>
+              <>يتم التحميل...</>
             ) : (
-              <> No Products Found</>
+              <> لم يتم العثور على منتجات</>
             )
           ) : (
             <SearchedProductList products={products} />

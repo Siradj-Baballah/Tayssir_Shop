@@ -14,17 +14,17 @@ export const FeaturedProductsAndCategories = {
         },
       ],
     },
-    {
-      name: 'mostSellingProducts',
-      title: 'Most Selling Products',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'product' }],
-        },
-      ],
-    },
+    // {
+    //   name: 'mostSellingProducts',
+    //   title: 'Most Selling Products',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       type: 'reference',
+    //       to: [{ type: 'product' }],
+    //     },
+    //   ],
+    // },
     {
       name: 'bestDeals',
       title: 'Best Deals',
@@ -36,16 +36,16 @@ export const FeaturedProductsAndCategories = {
         },
       ],
     },
-    {
-      name: 'trendingProducts',
-      title: 'Trending Products',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'product' }],
-        },
-      ],
-    },
+    // {
+    //   name: 'trendingProducts',
+    //   title: 'Trending Products',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       type: 'reference',
+    //       to: [{ type: 'product' }],
+    //     },
+    //   ],
+    // },
   ],
 };

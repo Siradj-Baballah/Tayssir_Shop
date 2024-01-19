@@ -12,7 +12,7 @@ interface FeaturedProducts {
 
 export const FeaturedProducts = ({ title, products }: FeaturedProducts) => {
   return (
-    <Box w={{ base: '100%', lg: '90%' }} mx="auto" p="2rem">
+    <Box w={{ base: '100%', lg: '90%' }} mx="auto" p="2rem" dir='rtl'>
       <SectionHeading title={title} />
       <ProductsSlider products={products} />
     </Box>

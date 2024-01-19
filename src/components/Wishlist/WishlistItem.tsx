@@ -4,7 +4,7 @@ import { getSubstring } from '@src/helpers';
 import { IItem } from '@src/model';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { BsCart, BsCartX, BsTrash } from 'react-icons/bs';
+import { BsCart, BsCart4, BsCartX, BsTrash } from 'react-icons/bs';
 
 interface WishlistItemProps {
   item: IItem;
@@ -22,32 +22,33 @@ export const WishlistItem = ({ item }: WishlistItemProps) => {
       my="2"
       py="1"
     >
-      <GridItem>
+      <GridItem colSpan={1} textAlign="center">
         <Link href={item.slug}>
           <Image
+            textAlign="center"
             src={item.mainImage}
-            boxSize="20px"
-            rounded="full"
+            boxSize="25px"
+            // rounded="full"
             borderWidth="1px"
             borderColor="gray.300"
           />
         </Link>
-      </GridItem>
-      <GridItem colSpan={4}>
+      </GridItem >
+      <GridItem colSpan={3} textAlign="center">
         <Link href={item.slug}>
-          <Text fontSize="sm" title={item.name}>
-            {getSubstring(item.name, 17)}
+          <Text fontSize="md" title={item.name}>
+            {getSubstring(item.name, 12)}
           </Text>
         </Link>
-      </GridItem>
+      </GridItem >
 
-      <GridItem>
-        <Text fontWeight="bold" fontSize="xs">
-          $ {item.price}
+      <GridItem colSpan={2} textAlign="center">
+        <Text fontWeight="bold" fontSize="sm">
+          {item.price} DA
         </Text>
       </GridItem>
 
-      <GridItem textAlign="right">
+      <GridItem textAlign="center" colSpan={1}>
         {isAdded('cart', item.id) ? (
           <Button
             size="xs"
@@ -58,7 +59,7 @@ export const WishlistItem = ({ item }: WishlistItemProps) => {
             title="Remove from Cart"
             onClick={() => removeItem('cart', item.id)}
           >
-            <BsCartX />
+            <BsCart4 />
           </Button>
         ) : (
           <Button
@@ -69,13 +70,17 @@ export const WishlistItem = ({ item }: WishlistItemProps) => {
             color="brand.primary"
             title="Add to Cart"
             onClick={() => addItem('cart', item)}
+            _hover={{
+              color:'white',
+              bgColor:"brand.primary"
+            }}
           >
-            <BsCart />
+            <BsCart4 />
           </Button>
         )}
       </GridItem>
 
-      <GridItem textAlign="right">
+      <GridItem textAlign="center" colSpan={1}>
         <Button
           variant="ghost"
           colorScheme="red"

@@ -40,20 +40,23 @@ const items: IBreadcrumbItem[] = [
 export const ProductDetails = ({ product }: ProductDetailsProps) => {
   const [quantity, setQuantity] = useState(1);
   const { isAdded, addItem, resetItems } = useContext(AppContext);
-
+   // Add a check for product.category
+   const categoryName = product.category ? product.category.name : 'Unknown Category';
+   const categoryId = product.category ? product.category.id : 'unknown';
+ 
   return (
     <>
       <CustomBreadcrumb
-        items={[
-          ...items,
-          {
-            name: product.category.name,
-            link: `/categories/${product.category.id}`,
-          },
-          {
-            name: getSubstring(product.name, 20),
-            link: `/products/${product.slug}`,
-          },
+       items={[
+        ...items,
+        {
+          name: categoryName,
+          link: `/categories/${categoryId}`,
+        },
+        {
+          name: getSubstring(product.name, 20),
+          link: `/products/${product.slug}`,
+        },
         ]}
       />
       <Grid
@@ -65,9 +68,16 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
       >
         <GridItem p="1rem" pos="relative">
           <AddToWishlistButton product={product} />
-          <Image src={product?.mainImage} alt={product.name} mx="auto" />
+          <Image 
+          src={product?.mainImage} 
+          alt={product.name} 
+          mx="auto" 
+          boxSize={{ base: '80%', lg: '80%' }} // Adjust the dimensions as needed
+          maxW={{ base: '100%', lg: 'none' }} // Disable max width for large screens
+          objectFit="contain" // Choose the appropriate value based on your design
+          />
           {/* TODO: fix product gallery */}
-          <Flex>
+          <Flex justify="end" >
             {product.gallery?.length !== 0 &&
               product.gallery?.map((image, i) => (
                 <Image
@@ -84,7 +94,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
               ))}
           </Flex>
         </GridItem>
-        <GridItem p="1rem">
+        <GridItem p="1rem" dir='rtl'>
           <Heading>{product.name}</Heading>
           <Text my="1rem">{product.description}</Text>
           <Rating rating={product.rating} />
@@ -109,15 +119,15 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                 borderRadius="50px"
                 size="sm"
                 w="160px"
-                mr="1rem"
+                ml="1rem"
                 my="0.5rem"
-                _hover={{ bgColor: 'none' }}
+                _hover={{ bgColor: "brand.primaryDark" }}
                 onClick={() => {
                   resetItems('checkout');
                   addItem('checkout', product, quantity);
                 }}
               >
-                Buy Now
+                أطلب الآن
               </Button>
             </Link>
             <AddToCartButton product={product} count={quantity} />
@@ -125,19 +135,18 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
 
           <Stack py="2rem">
             <Box borderWidth={1} borderColor="gray.100" p="1rem">
-              <Text fontWeight="bold">Free Deliver</Text>
-              <Link textDecor="underline" color="gray.500">
-                Enter Your postal Code for Delivery Availability
-              </Link>
+              <Text fontWeight="bold">التوصيل متوفر لكل الولايات</Text>
+              <Text color="gray.500">
+                الأسعار تختلف من ولاية لأخرى
+              </Text>
             </Box>
 
-            <Box borderWidth={1} borderColor="gray.100" p="1rem">
+            {/* <Box borderWidth={1} borderColor="gray.100" p="1rem">
               <Text fontWeight="bold">Return Delivery</Text>
               <Text color="gray.500">
                 Free 30 Days Delivery Returns
-                <Link textDecor="underline"> Details</Link>
               </Text>
-            </Box>
+            </Box> */}
           </Stack>
         </GridItem>
       </Grid>
